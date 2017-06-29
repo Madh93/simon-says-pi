@@ -4,7 +4,8 @@
 #include <QObject>
 #include <QGraphicsScene>
 
-#include "game/gui/tile.hpp"
+#include "game/gui/graphics/tile.hpp"
+#include "game/gui/graphics/turn.hpp"
 
 namespace Game {
 namespace GUI {
@@ -15,6 +16,9 @@ class Board : public QGraphicsScene {
 public:
     explicit Board(QObject *parent = 0);
 
+    Graphics::Tile *getTile(Color color);
+    Graphics::Turn *getTurn();
+
 signals:
 
 public slots:
@@ -22,9 +26,13 @@ public slots:
 protected:
 
 private:
-    QHash<QString, Game::GUI::Tile*> tiles;
+    QHash<QString, Graphics::Tile*> tiles;
+    Graphics::Turn *turn;
 
     void setUpTiles();
+    void setUpTurn();
+
+    Graphics::Tile *getTileByColor(Color color);
 };
 
 } // namespace GUI

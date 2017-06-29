@@ -6,15 +6,16 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 
-#include "game/gui/color.hpp"
+#include "game/types.hpp"
+#include "game/gui/palette.hpp"
 
 namespace Game {
 namespace GUI {
 namespace Graphics {
 
 // Available turns
-static const QString cpu_turn = "CPU";
-static const QString player_turn = "YOU";
+static const QString text_computer = "CPU";
+static const QString text_player = "YOU";
 
 class Turn : public QObject, public QGraphicsEllipseItem {
 
@@ -22,7 +23,7 @@ class Turn : public QObject, public QGraphicsEllipseItem {
 public:
     explicit Turn(QObject *parent = 0);
 
-    int getCurrentTurn();
+    Game::Turn getCurrentTurn();
 
 signals:
 
@@ -33,9 +34,12 @@ protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 private:
-    QGraphicsTextItem *text;
+    Game::Turn turn;
+    QString text;
+    QGraphicsTextItem *text_item;
 
     void setUpText();
+    void update();
 };
 
 } // namespace Graphics

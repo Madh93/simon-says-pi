@@ -1,48 +1,53 @@
 #include "game/gui/graphics/turn.hpp"
 
-#include <QDebug>
-
 namespace Game {
 namespace GUI {
 namespace Graphics {
 
 Turn::Turn(QObject *parent) : QObject(parent), QGraphicsEllipseItem() {
 
+    // Initial turn
+    turn = Game::Turn::Computer;
+    text = text_computer;
+
     // Ellipse settings
     this->setRect(135, 65, 50, 50);
-    this->setBrush(QBrush(Game::GUI::Color::turn_background));
+    this->setBrush(QBrush(Palette::turn_background));
 
     // Text settings
     setUpText();
 }
 
-int Turn::getCurrentTurn() {
-
-    return text->toPlainText() == cpu_turn ? 0 : 1;
-}
+Game::Turn Turn::getCurrentTurn() { return turn; }
 
 void Turn::nextTurn() {
 
-    if (text->toPlainText() == cpu_turn) {
-        text->setPlainText(player_turn);
+    if (turn == Game::Turn::Computer) {
+        turn = Game::Turn::Player;
+        text = text_player;
     } else {
-        text->setPlainText(cpu_turn);
+        turn = Game::Turn::Computer;
+        text = text_computer;
     }
+
+    update();
 }
 
 void Turn::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 
-    // Disable event propagation
+    // Disable event propagation to tiles
     event->accept();
 }
 
 void Turn::setUpText() {
 
-    text = new QGraphicsTextItem(cpu_turn, this);
-    text->setPos(133, 70);
-    text->setScale(1.65);
-    text->setDefaultTextColor(Game::GUI::Color::turn_font);
+    text_item = new QGraphicsTextItem(text, this);
+    text_item->setPos(133, 70);
+    text_item->setScale(1.65);
+    text_item->setDefaultTextColor(Palette::turn_font);
 }
+
+void Turn::update() { text_item->setPlainText(text); }
 
 } // namespace Graphics
 } // namespace GUI

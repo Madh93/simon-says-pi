@@ -1,11 +1,11 @@
-#ifndef COLOR_HPP
-#define COLOR_HPP
+#ifndef PALETTE_HPP
+#define PALETTE_HPP
 
 #include <QColor>
 
 namespace Game {
 namespace GUI {
-namespace Color {
+namespace Palette {
 
 // Screen style colours
 static const QColor screen_background(35, 50, 55);
@@ -32,8 +32,8 @@ static const QColor turn_font(255, 255, 255);
 static const QColor score_font(255, 255, 255);
 
 
-} // namespace Color
+} // namespace Palette
 } // namespace GUI
 } // namespace Game
 
-#endif // COLOR_HPP
+#endif // PALETTE_HPP

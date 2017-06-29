@@ -6,22 +6,23 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QBrush>
 
+#include "game/types.hpp"
+#include "game/gui/palette.hpp"
+
 namespace Game {
 namespace GUI {
-
-// Tile style colours
-static const QColor tile_green(32, 173, 138);
-static const QColor tile_red(255, 111, 73);
-static const QColor tile_yellow(255, 192, 59);
-static const QColor tile_blue(0, 129, 195);
+namespace Graphics {
 
 class Tile : public QObject, public QGraphicsRectItem {
 
     Q_OBJECT
 public:
-    explicit Tile(int x, int y, const QColor &color, QObject *parent = 0);
+    explicit Tile(int x, int y, Color c, QObject *parent = 0);
+
+    Color getColor();
 
 signals:
+    void clicked();
 
 public slots:
 
@@ -30,9 +31,11 @@ protected:
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
 private:
+    Color color;
     QColor tile_color;
 };
 
+} // namespace Graphics
 } // namespace GUI
 } // namespace Game
 
