@@ -28,6 +28,10 @@ static const QColor tile_blue(0, 129, 195);
 static const QColor turn_background(35, 50, 55);
 static const QColor turn_font(255, 255, 255);
 
+// Score style colours
+static const QColor score_font(255, 255, 255);
+
+
 } // namespace Color
 } // namespace GUI
 } // namespace Game
