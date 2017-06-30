@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QWidget>
 #include <QDesktopWidget>
+#include <QFile>
 
 #include "game/types.hpp"
 

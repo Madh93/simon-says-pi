@@ -5,7 +5,7 @@ namespace GUI {
 
 Score::Score(QWidget *parent) : QLabel(parent) {
 
-    this->setStyleSheet("QLabel { color:white; font: bold 36px; }");
+    this->setObjectName("score");
     score = 0;
 
     update();

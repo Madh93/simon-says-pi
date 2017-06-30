@@ -15,8 +15,12 @@ void setUpDefaultScreen(QWidget *screen) {
     screen->setMinimumSize(max_width, max_height);
     screen->setMaximumSize(max_width, max_height);
 
-    // Screen style
-    screen->setStyleSheet("background-color: #233237;");
+    // Load screen stylesheet
+    screen->setObjectName("screen");
+    QFile file(":/qss/application.qss");
+    file.open(QFile::ReadOnly);
+    QString stylesheet = QLatin1String(file.readAll());
+    screen->setStyleSheet(stylesheet);
 }
 
 } // namespace Screen

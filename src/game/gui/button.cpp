@@ -8,6 +8,8 @@ Button::Button(QString text, const QColor &color, QWidget *parent):
     QPushButton(text, parent),
     button_style(color) {
 
+    this->setObjectName("button");
+
     setUpStyle();
     setUpEffect();
 
@@ -28,20 +30,13 @@ void Button::setUpStyle() {
     QString normal_color = button_style.name();
     QString pressed_color = button_style.darker(125).name();
 
+    // Pressed color animation
     this->setStyleSheet(QString(
-                        "QPushButton {"
-                            "background-color: %1;"
-                            "border-style: outset;"
-                            "border-width: 2px;"
-                            "border-radius: 10px;"
-                            "border-color: beige;"
-                            "font: bold;"
-                            "color: white;"
-                            "outline:none;"
-                            "padding: 6px; }"
-                        "QPushButton:pressed {"
-                             "background-color: %2; }"
-                            ).arg(normal_color, pressed_color));
+                        "QPushButton#button {"
+                            "background-color: %1; }"
+                        "QPushButton#button:pressed {"
+                            "background-color: %2; }"
+                        ).arg(normal_color, pressed_color));
 }
 
 void Button::setUpEffect() {

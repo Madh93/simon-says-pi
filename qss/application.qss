@@ -1,0 +1,23 @@
+QWidget#screen {
+    background-color: #233237;
+}
+
+QPushButton#button {
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold;
+    color: white;
+    outline:none;
+    padding: 6px;
+}
+
+QLabel#score {
+    color: white;
+    font: bold 36px;
+}
+
+QGraphicsView {
+    border-style: none;
+}

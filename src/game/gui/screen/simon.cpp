@@ -19,7 +19,6 @@ Simon::Simon(QWidget *parent) : QWidget(parent) {
     QGraphicsView *board_view = new QGraphicsView(board, this);
     board_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     board_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    board_view->setStyleSheet("QGraphicsView { border-style: none; }");
 
     // Main layout (score + board)
     QVBoxLayout *main_layout = new QVBoxLayout(this);
