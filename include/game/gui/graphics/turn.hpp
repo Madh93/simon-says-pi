@@ -39,6 +39,8 @@ private:
     QGraphicsTextItem *text_item;
 
     void setUpText();
+    void setComputerTurn();
+    void setPlayerTurn();
     void update();
 };
 
@@ -47,27 +49,3 @@ private:
 } // namespace Game
 
 #endif // TURN_HPP
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//class myItem :public QGraphicsEllipseItem
-//{
-//public:
-//paint ( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 )
-//{
-
-//painter->drawText()    // Draw you text
-//}
-
-//};

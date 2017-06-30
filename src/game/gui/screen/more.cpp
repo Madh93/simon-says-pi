@@ -8,9 +8,9 @@ More::More(QWidget *parent) : QWidget(parent) {
 
     // Buttons menu
     using Button = Game::GUI::Button;
-    Button *back_button = new Button("Back", Game::GUI::btn_danger, this);
-    Button *stats_button = new Button("Stats", Game::GUI::btn_primary, this);
-    Button *about_button = new Button("About", Game::GUI::btn_primary, this);
+    Button *back_button = new Button("Back", Palette::btn_danger, this);
+    Button *stats_button = new Button("Stats", Palette::btn_primary, this);
+    Button *about_button = new Button("About", Palette::btn_primary, this);
     stats_button->setFontSize(24);
     about_button->setFontSize(24);
     back_button->setFontSize(18);

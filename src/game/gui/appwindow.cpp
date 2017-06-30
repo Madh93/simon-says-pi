@@ -1,5 +1,4 @@
 #include "game/gui/appwindow.hpp"
-#include <QDebug>
 
 namespace Game {
 namespace GUI {

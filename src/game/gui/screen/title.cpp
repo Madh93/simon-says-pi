@@ -14,9 +14,9 @@ Title::Title(QWidget *parent) : QWidget(parent) {
 
     // Buttons menu
     using Button = Game::GUI::Button;
-    Button *play_button = new Button("Play", Game::GUI::btn_success, this);
-    Button *more_button = new Button("More", Game::GUI::btn_primary, this);
-    Button *exit_button = new Button("Exit", Game::GUI::btn_danger, this);
+    Button *play_button = new Button("Play", Palette::btn_success, this);
+    Button *more_button = new Button("More", Palette::btn_primary, this);
+    Button *exit_button = new Button("Exit", Palette::btn_danger, this);
     play_button->setFontSize(36);
     more_button->setFontSize(18);
     exit_button->setFontSize(18);
