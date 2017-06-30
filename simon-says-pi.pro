@@ -12,14 +12,15 @@ HEADERS += \
     include/game/gui/appwindow.hpp \
     include/game/gui/board.hpp \
     include/game/gui/button.hpp \
+    include/game/gui/palette.hpp \
     include/game/gui/score.hpp \
     include/game/gui/graphics/tile.hpp \
     include/game/gui/graphics/turn.hpp \
+    include/game/gui/screen/about.hpp \
     include/game/gui/screen/base.hpp \
     include/game/gui/screen/more.hpp \
     include/game/gui/screen/simon.hpp \
-    include/game/gui/screen/title.hpp \
-    include/game/gui/palette.hpp
+    include/game/gui/screen/title.hpp
 
 
 # Source files
@@ -31,6 +32,7 @@ SOURCES += \
     src/game/gui/score.cpp \
     src/game/gui/graphics/tile.cpp \
     src/game/gui/graphics/turn.cpp \
+    src/game/gui/screen/about.cpp \
     src/game/gui/screen/base.cpp \
     src/game/gui/screen/more.cpp \
     src/game/gui/screen/simon.cpp \

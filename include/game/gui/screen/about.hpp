@@ -1,7 +1,8 @@
-#ifndef MORE_HPP
-#define MORE_HPP
+#ifndef ABOUT_HPP
+#define ABOUT_HPP
 
-#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QLabel>
 
 #include "game/gui/screen/base.hpp"
 #include "game/gui/button.hpp"
@@ -10,15 +11,14 @@ namespace Game {
 namespace GUI {
 namespace Screen {
 
-class More : public QWidget {
+class About : public QWidget {
 
     Q_OBJECT
 public:
-    explicit More(QWidget *parent = 0);
+    explicit About(QWidget *parent = 0);
 
 signals:
     void backClicked();
-    void aboutClicked();
 
 public slots:
 };
@@ -27,4 +27,4 @@ public slots:
 } // namespace GUI
 } // namespace Game
 
-#endif // MORE_HPP
+#endif // ABOUT_HPP

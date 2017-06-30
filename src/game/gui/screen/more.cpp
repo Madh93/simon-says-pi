@@ -33,6 +33,7 @@ More::More(QWidget *parent) : QWidget(parent) {
 
     // Signals && Slots
     this->connect(back_button, SIGNAL(clicked()), this, SIGNAL(backClicked()));
+    this->connect(about_button, SIGNAL(clicked()), this, SIGNAL(aboutClicked()));
 }
 
 } // namespace Screen

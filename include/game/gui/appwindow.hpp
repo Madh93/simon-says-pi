@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QStackedWidget>
 
+#include "game/gui/screen/about.hpp"
 #include "game/gui/screen/more.hpp"
 #include "game/gui/screen/simon.hpp"
 #include "game/gui/screen/title.hpp"
@@ -23,6 +24,7 @@ public slots:
     void loadTitleScreen();
     void loadSimonScreen();
     void loadMoreScreen();
+    void loadAboutScreen();
 
 private:
     QStackedWidget *stacked_widget;
