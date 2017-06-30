@@ -11,24 +11,34 @@ Tile::Tile(int x, int y, Color c, QObject *parent) :
     color = c;
 
     switch (color) {
-        case Color::Green : tile_color = Palette::tile_green; break;
-        case Color::Red : tile_color = Palette::tile_red; break;
-        case Color::Yellow : tile_color = Palette::tile_yellow; break;
-        case Color::Blue : tile_color = Palette::tile_blue;
+        case Color::Green : q_color = Palette::tile_green; break;
+        case Color::Red : q_color = Palette::tile_red; break;
+        case Color::Yellow : q_color = Palette::tile_yellow; break;
+        case Color::Blue : q_color = Palette::tile_blue;
     }
 
-    this->setBrush(QBrush(tile_color));
+    this->setBrush(QBrush(q_color));
     this->setRect(x, y, 160, 90);
 }
 
 Color Tile::getColor() { return color; }
 
+void Tile::simulatePressEvent() {
+
+    QTimer *timer = new QTimer(this);
+    timer->setSingleShot(true);
+    connect(timer, SIGNAL(timeout()), this, SLOT(simulateReleaseEvent()));
+
+    setPressAnimation();
+    timer->start(150);
+}
+
+void Tile::simulateReleaseEvent() { setReleaseAnimation(); }
+
 void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 
-    QColor pressed_color = tile_color.darker(125);
-
     if(event->button() == Qt::LeftButton) {
-        this->setBrush(QBrush(pressed_color));
+        setPressAnimation();
         emit clicked();
     }
 }
@@ -36,9 +46,15 @@ void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 void Tile::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 
     if(event->button() == Qt::LeftButton) {
-        this->setBrush(QBrush(tile_color));
+        setReleaseAnimation();
     }
 }
+
+void Tile::setPressAnimation() { q_color = q_color.darker(125); update(); }
+
+void Tile::setReleaseAnimation() { q_color = q_color.lighter(125); update(); }
+
+void Tile::update() { this->setBrush(QBrush(q_color)); }
 
 } // namespace Graphics
 } // namespace GUI

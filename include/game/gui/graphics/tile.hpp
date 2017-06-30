@@ -5,6 +5,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QBrush>
+#include <QTimer>
 
 #include "game/types.hpp"
 #include "game/gui/palette.hpp"
@@ -25,6 +26,8 @@ signals:
     void clicked();
 
 public slots:
+    void simulatePressEvent();
+    void simulateReleaseEvent();
 
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
@@ -32,7 +35,11 @@ protected:
 
 private:
     Color color;
-    QColor tile_color;
+    QColor q_color;
+
+    void setPressAnimation();
+    void setReleaseAnimation();
+    void update();
 };
 
 } // namespace Graphics
