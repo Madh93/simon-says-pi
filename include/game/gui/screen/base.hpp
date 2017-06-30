@@ -6,6 +6,8 @@
 #include <QWidget>
 #include <QDesktopWidget>
 
+#include "game/types.hpp"
+
 namespace Game {
 namespace GUI {
 namespace Screen {

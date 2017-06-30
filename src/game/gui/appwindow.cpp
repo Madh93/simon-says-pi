@@ -1,4 +1,5 @@
 #include "game/gui/appwindow.hpp"
+#include <QDebug>
 
 namespace Game {
 namespace GUI {
@@ -7,27 +8,39 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
 
     Screen::setUpDefaultScreen(this);
 
-    QStackedWidget *stacked_widget = new QStackedWidget(this);
-    QSignalMapper *signal_mapper = new QSignalMapper(this);
-
     // Screens
-    Screen::Title *title_screen = new Screen::Title(parent);
-    Screen::More *more_screen = new Screen::More(parent);
+    screens["title"] = new Screen::Title(parent);
+    screens["simon"] = new Screen::Simon(parent);
+    screens["more"] = new Screen::More(parent);
 
-    stacked_widget->addWidget(title_screen);
-    stacked_widget->addWidget(more_screen);
+    // Stacked Widget to manage screens
+    stacked_widget = new QStackedWidget(this);
+    stacked_widget->addWidget(screens["title"]);
+    stacked_widget->addWidget(screens["simon"]);
+    stacked_widget->addWidget(screens["more"]);
 
-    this->connect(title_screen, SIGNAL(moreClicked()), signal_mapper, SLOT(map()));
-    this->connect(more_screen, SIGNAL(backClicked()), signal_mapper, SLOT(map()));
-
-    signal_mapper->setMapping(title_screen, 1);
-    signal_mapper->setMapping(more_screen, 0);
-
-    this->connect(signal_mapper, SIGNAL(mapped(int)), stacked_widget, SLOT(setCurrentIndex(int)));
-
-    // Show
+    // Show default screen
     this->setCentralWidget(stacked_widget);
+    stacked_widget->setCurrentWidget(screens["title"]);
+
+    // Signals & Slots
+    this->connect(screens["title"], SIGNAL(moreClicked()), this, SLOT(loadMoreScreen()));
+    this->connect(screens["title"], SIGNAL(playClicked()), this, SLOT(loadSimonScreen()));
+    this->connect(screens["more"], SIGNAL(backClicked()), this, SLOT(loadTitleScreen()));
 }
+
+void AppWindow::loadTitleScreen() {
+    stacked_widget->setCurrentWidget(screens["title"]);
+}
+
+void AppWindow::loadSimonScreen() {
+    stacked_widget->setCurrentWidget(screens["simon"]);
+}
+
+void AppWindow::loadMoreScreen() {
+    stacked_widget->setCurrentWidget(screens["more"]);
+}
+
 
 } // namespace GUI
 } // namespace Game

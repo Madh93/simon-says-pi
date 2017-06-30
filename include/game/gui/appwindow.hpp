@@ -3,10 +3,10 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
-#include <QSignalMapper>
 
-#include "game/gui/screen/title.hpp"
 #include "game/gui/screen/more.hpp"
+#include "game/gui/screen/simon.hpp"
+#include "game/gui/screen/title.hpp"
 
 namespace Game {
 namespace GUI {
@@ -20,6 +20,13 @@ public:
 signals:
 
 public slots:
+    void loadTitleScreen();
+    void loadSimonScreen();
+    void loadMoreScreen();
+
+private:
+    QStackedWidget *stacked_widget;
+    QHash<QString, QWidget*> screens;
 };
 
 } // namespace GUI
