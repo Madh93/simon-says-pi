@@ -18,6 +18,10 @@ QLabel#score {
     font: bold 36px;
 }
 
+QLabel#about {
+    color: white;
+}
+
 QGraphicsView {
     border-style: none;
 }
