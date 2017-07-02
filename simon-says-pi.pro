@@ -14,6 +14,7 @@ HEADERS += \
     include/game/gui/button.hpp \
     include/game/gui/palette.hpp \
     include/game/gui/score.hpp \
+    include/game/gui/stackedwidget.hpp \
     include/game/gui/graphics/tile.hpp \
     include/game/gui/graphics/turn.hpp \
     include/game/gui/screen/about.hpp \
@@ -30,6 +31,7 @@ SOURCES += \
     src/game/gui/board.cpp \
     src/game/gui/button.cpp \
     src/game/gui/score.cpp \
+    src/game/gui/stackedwidget.cpp \
     src/game/gui/graphics/tile.cpp \
     src/game/gui/graphics/turn.cpp \
     src/game/gui/screen/about.cpp \
