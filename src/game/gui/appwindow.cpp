@@ -14,7 +14,7 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
     screens["about"] = new Screen::About(parent);
 
     // Stacked Widget to manage screens
-    stacked_widget = new QStackedWidget(this);
+    stacked_widget = new StackedWidget(this);
     stacked_widget->addWidget(screens["title"]);
     stacked_widget->addWidget(screens["simon"]);
     stacked_widget->addWidget(screens["more"]);
@@ -33,21 +33,42 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
 }
 
 void AppWindow::loadTitleScreen() {
-    stacked_widget->setCurrentWidget(screens["title"]);
+
+    if (currentScreen() == screens["simon"]) {
+        direction = Direction::BottomToTop;
+    } else {
+        direction = Direction::TopToBottom;
+    }
+
+    update(screens["title"]);
 }
 
 void AppWindow::loadSimonScreen() {
-    stacked_widget->setCurrentWidget(screens["simon"]);
+
+    direction = Direction::TopToBottom;
+    update(screens["simon"]);
 }
 
 void AppWindow::loadMoreScreen() {
-    stacked_widget->setCurrentWidget(screens["more"]);
+
+    if (currentScreen() == screens["title"]) {
+        direction = Direction::BottomToTop;
+    } else if (currentScreen() == screens["about"]) {
+        direction = Direction::LeftToRight;
+    }
+
+    update(screens["more"]);
 }
 
 void AppWindow::loadAboutScreen() {
-    stacked_widget->setCurrentWidget(screens["about"]);
+
+    direction = Direction::RightToLeft;
+    update(screens["about"]);
 }
 
+QWidget *AppWindow::currentScreen() { return stacked_widget->currentWidget(); }
+
+void AppWindow::update(QWidget *screen) { stacked_widget->setAnimatedTransition(screen, direction); }
 
 } // namespace GUI
 } // namespace Game

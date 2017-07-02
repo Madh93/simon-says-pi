@@ -2,8 +2,8 @@
 #define APPWINDOW_HPP
 
 #include <QMainWindow>
-#include <QStackedWidget>
 
+#include "game/gui/stackedwidget.hpp"
 #include "game/gui/screen/about.hpp"
 #include "game/gui/screen/more.hpp"
 #include "game/gui/screen/simon.hpp"
@@ -27,8 +27,12 @@ public slots:
     void loadAboutScreen();
 
 private:
-    QStackedWidget *stacked_widget;
+    StackedWidget *stacked_widget;
     QHash<QString, QWidget*> screens;
+    Direction direction;
+
+    QWidget *currentScreen();
+    void update(QWidget *screen);
 };
 
 } // namespace GUI
