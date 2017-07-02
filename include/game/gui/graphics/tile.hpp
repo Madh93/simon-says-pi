@@ -9,6 +9,7 @@
 
 #include "game/types.hpp"
 #include "game/gui/palette.hpp"
+#include "game/sound/mediaplayer.hpp"
 
 namespace Game {
 namespace GUI {
@@ -36,6 +37,7 @@ protected:
 private:
     Color color;
     QColor q_color;
+    Game::Sound::MediaPlayer *mediaplayer;
 
     void setPressAnimation();
     void setReleaseAnimation();

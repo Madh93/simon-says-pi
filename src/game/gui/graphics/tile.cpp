@@ -9,6 +9,7 @@ Tile::Tile(int x, int y, Color c, QObject *parent) :
     QGraphicsRectItem() {
 
     color = c;
+    mediaplayer = new Game::Sound::MediaPlayer((Audio) color);
 
     switch (color) {
         case Color::Green : q_color = Palette::tile_green; break;
@@ -29,6 +30,7 @@ void Tile::simulatePressEvent() {
     timer->setSingleShot(true);
     connect(timer, SIGNAL(timeout()), this, SLOT(simulateReleaseEvent()));
 
+    mediaplayer->play();
     setPressAnimation();
     timer->start(150);
 }
@@ -38,6 +40,7 @@ void Tile::simulateReleaseEvent() { setReleaseAnimation(); }
 void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 
     if(event->button() == Qt::LeftButton) {
+        mediaplayer->play();
         setPressAnimation();
         emit clicked();
     }
