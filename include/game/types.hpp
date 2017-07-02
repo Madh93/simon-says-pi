@@ -15,6 +15,13 @@ enum class Turn {
     Player
 };
 
+enum class Audio {
+    Green,
+    Red,
+    Yellow,
+    Blue
+};
+
 //enum class GameState { };
 //typedef enum { } PlayerState;
 

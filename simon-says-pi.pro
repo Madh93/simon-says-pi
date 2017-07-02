@@ -1,3 +1,7 @@
+# Qt Dependencies
+QT += phonon
+
+
 # Installation settings
 TARGET = simon-says-pi
 target.path = /
@@ -21,7 +25,8 @@ HEADERS += \
     include/game/gui/screen/base.hpp \
     include/game/gui/screen/more.hpp \
     include/game/gui/screen/simon.hpp \
-    include/game/gui/screen/title.hpp
+    include/game/gui/screen/title.hpp \
+    include/game/sound/mediaplayer.hpp
 
 
 # Source files
@@ -38,7 +43,8 @@ SOURCES += \
     src/game/gui/screen/base.cpp \
     src/game/gui/screen/more.cpp \
     src/game/gui/screen/simon.cpp \
-    src/game/gui/screen/title.cpp
+    src/game/gui/screen/title.cpp \
+    src/game/sound/mediaplayer.cpp
 
 
 # Resources files
