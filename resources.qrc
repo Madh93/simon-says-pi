@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>assets/img/title-logo.png</file>
         <file>qss/application.qss</file>
+        <file>assets/sound/green.wav</file>
+        <file>assets/sound/blue.wav</file>
+        <file>assets/sound/red.wav</file>
+        <file>assets/sound/yellow.wav</file>
     </qresource>
 </RCC>
