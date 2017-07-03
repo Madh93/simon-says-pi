@@ -19,6 +19,12 @@ void StackedWidget::setAnimation(QEasingCurve::Type type) { animation = type; }
 
 void StackedWidget::setAnimatedTransition(QWidget *screen, Direction direction){
 
+    // Check if transitions are enabled
+    if (disabled()) {
+        this->setCurrentWidget(screen);
+        return;
+    }
+
     // Check active animation
     if (active) {
         return;
@@ -86,6 +92,8 @@ void StackedWidget::finishAnimatedTransition() {
 
     active = false;
 }
+
+bool StackedWidget::disabled() { return !Game::Settings::load("gui:transitions:enabled").toBool(); }
 
 } // namespace GUI
 } // namespace Game

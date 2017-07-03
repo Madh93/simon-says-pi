@@ -6,5 +6,6 @@
         <file>assets/sound/blue.wav</file>
         <file>assets/sound/red.wav</file>
         <file>assets/sound/yellow.wav</file>
+        <file>config/application.ini</file>
     </qresource>
 </RCC>

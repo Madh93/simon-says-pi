@@ -4,6 +4,7 @@
 #include <phonon/mediaobject.h>
 
 #include "game/types.hpp"
+#include "game/settings/manager.hpp"
 
 namespace Game {
 namespace Sound {
@@ -26,6 +27,7 @@ private:
     Phonon::MediaObject *media;
 
     void setUpAudioFile();
+    bool disabled();
 };
 
 } // namespace Sound
