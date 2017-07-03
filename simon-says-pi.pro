@@ -26,6 +26,7 @@ HEADERS += \
     include/game/gui/screen/more.hpp \
     include/game/gui/screen/simon.hpp \
     include/game/gui/screen/title.hpp \
+    include/game/settings/manager.hpp \
     include/game/sound/mediaplayer.hpp
 
 
@@ -44,6 +45,7 @@ SOURCES += \
     src/game/gui/screen/more.cpp \
     src/game/gui/screen/simon.cpp \
     src/game/gui/screen/title.cpp \
+    src/game/settings/manager.cpp \
     src/game/sound/mediaplayer.cpp
 
 
