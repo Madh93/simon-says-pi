@@ -9,7 +9,14 @@ MediaPlayer::MediaPlayer(Audio name) {
     setUpAudioFile();
 }
 
-void MediaPlayer::play() { media->play(); }
+void MediaPlayer::play() {
+
+    if (disabled()) {
+        return;
+    } else {
+        media->play();
+    }
+}
 
 void MediaPlayer::setUpAudioFile() {
 
@@ -22,8 +29,14 @@ void MediaPlayer::setUpAudioFile() {
         case Audio::Blue : filename = "://assets/sound/blue.wav";
     }
 
-    media = Phonon::createPlayer(Phonon::NoCategory, Phonon::MediaSource(filename));
+    if (disabled()) {
+        return;
+    } else {
+        media = Phonon::createPlayer(Phonon::NoCategory, Phonon::MediaSource(filename));
+    }
 }
+
+bool MediaPlayer::disabled() { return !Game::Settings::load("sound:enabled").toBool(); }
 
 } // namespace Sound
 } // namespace Game

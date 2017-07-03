@@ -7,6 +7,8 @@
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 
+#include "game/settings/manager.hpp"
+
 /* REFERENCE:
  * http://qt.shoutwiki.com/wiki/Extending_QStackedWidget_for_sliding_page_animations_in_Qt
  */
@@ -41,6 +43,8 @@ private:
     QWidget *current_screen;
     QWidget *next_screen;
     QPoint current_point;
+
+    bool disabled();
 };
 
 } // namespace GUI
