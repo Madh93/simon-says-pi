@@ -16,6 +16,7 @@ HEADERS += \
     include/game/gui/appwindow.hpp \
     include/game/gui/board.hpp \
     include/game/gui/button.hpp \
+    include/game/gui/highscore.hpp \
     include/game/gui/palette.hpp \
     include/game/gui/score.hpp \
     include/game/gui/stackedwidget.hpp \
@@ -25,6 +26,7 @@ HEADERS += \
     include/game/gui/screen/base.hpp \
     include/game/gui/screen/more.hpp \
     include/game/gui/screen/simon.hpp \
+    include/game/gui/screen/stats.hpp \
     include/game/gui/screen/title.hpp \
     include/game/settings/manager.hpp \
     include/game/sound/mediaplayer.hpp
@@ -36,6 +38,7 @@ SOURCES += \
     src/game/gui/appwindow.cpp \
     src/game/gui/board.cpp \
     src/game/gui/button.cpp \
+    src/game/gui/highscore.cpp \
     src/game/gui/score.cpp \
     src/game/gui/stackedwidget.cpp \
     src/game/gui/graphics/tile.cpp \
@@ -44,6 +47,7 @@ SOURCES += \
     src/game/gui/screen/base.cpp \
     src/game/gui/screen/more.cpp \
     src/game/gui/screen/simon.cpp \
+    src/game/gui/screen/stats.cpp \
     src/game/gui/screen/title.cpp \
     src/game/settings/manager.cpp \
     src/game/sound/mediaplayer.cpp

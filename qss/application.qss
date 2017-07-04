@@ -18,6 +18,36 @@ QLabel#score {
     font: bold 36px;
 }
 
+QLabel#highscore0 {
+    color: white;
+    font: bold 20px;
+}
+
+QLabel#highscore1 {
+    color: #F1CC54;
+    font: 16px;
+}
+
+QLabel#highscore2 {
+    color: white;
+    font: 16px;
+}
+
+QLabel#highscore3 {
+    color: white;
+    font: 16px;
+}
+
+QLabel#highscore4 {
+    color: white;
+    font: 16px;
+}
+
+QLabel#highscore5 {
+    color: white;
+    font: 16px;
+}
+
 QLabel#about {
     color: white;
 }
