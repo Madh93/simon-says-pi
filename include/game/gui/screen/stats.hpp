@@ -1,25 +1,25 @@
-#ifndef MORE_HPP
-#define MORE_HPP
+#ifndef STATS_HPP
+#define STATS_HPP
 
-#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QLabel>
 
 #include "game/gui/screen/base.hpp"
 #include "game/gui/button.hpp"
+#include "game/gui/highscore.hpp"
 
 namespace Game {
 namespace GUI {
 namespace Screen {
 
-class More : public QWidget {
+class Stats : public QWidget {
 
     Q_OBJECT
 public:
-    explicit More(QWidget *parent = 0);
+    explicit Stats(QWidget *parent = 0);
 
 signals:
     void backClicked();
-    void statsClicked();
-    void aboutClicked();
 
 public slots:
 };
@@ -28,4 +28,4 @@ public slots:
 } // namespace GUI
 } // namespace Game
 
-#endif // MORE_HPP
+#endif // STATS_HPP

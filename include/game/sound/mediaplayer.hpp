@@ -1,5 +1,5 @@
-#ifndef PLAYER_HPP
-#define PLAYER_HPP
+#ifndef MEDIAPLAYER_HPP
+#define MEDIAPLAYER_HPP
 
 #include <phonon/mediaobject.h>
 
@@ -33,4 +33,4 @@ private:
 } // namespace Sound
 } // namespace Game
 
-#endif // PLAYER_HPP
+#endif // MEDIAPLAYER_HPP

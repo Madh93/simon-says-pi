@@ -11,6 +11,7 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
     screens["title"] = new Screen::Title(parent);
     screens["simon"] = new Screen::Simon(parent);
     screens["more"] = new Screen::More(parent);
+    screens["stats"] = new Screen::Stats(parent);
     screens["about"] = new Screen::About(parent);
 
     // Stacked Widget to manage screens
@@ -18,6 +19,7 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
     stacked_widget->addWidget(screens["title"]);
     stacked_widget->addWidget(screens["simon"]);
     stacked_widget->addWidget(screens["more"]);
+    stacked_widget->addWidget(screens["stats"]);
     stacked_widget->addWidget(screens["about"]);
 
     // Show default screen
@@ -28,7 +30,9 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
     this->connect(screens["title"], SIGNAL(moreClicked()), this, SLOT(loadMoreScreen()));
     this->connect(screens["title"], SIGNAL(playClicked()), this, SLOT(loadSimonScreen()));
     this->connect(screens["more"], SIGNAL(backClicked()), this, SLOT(loadTitleScreen()));
+    this->connect(screens["more"], SIGNAL(statsClicked()), this, SLOT(loadStatsScreen()));
     this->connect(screens["more"], SIGNAL(aboutClicked()), this, SLOT(loadAboutScreen()));
+    this->connect(screens["stats"], SIGNAL(backClicked()), this, SLOT(loadMoreScreen()));
     this->connect(screens["about"], SIGNAL(backClicked()), this, SLOT(loadMoreScreen()));
 }
 
@@ -55,9 +59,17 @@ void AppWindow::loadMoreScreen() {
         direction = Direction::BottomToTop;
     } else if (currentScreen() == screens["about"]) {
         direction = Direction::LeftToRight;
+    } else if (currentScreen() == screens["stats"]) {
+        direction = Direction::RightToLeft;
     }
 
     update(screens["more"]);
+}
+
+void AppWindow::loadStatsScreen() {
+
+    direction = Direction::LeftToRight;
+    update(screens["stats"]);
 }
 
 void AppWindow::loadAboutScreen() {

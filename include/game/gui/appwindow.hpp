@@ -7,6 +7,7 @@
 #include "game/gui/screen/about.hpp"
 #include "game/gui/screen/more.hpp"
 #include "game/gui/screen/simon.hpp"
+#include "game/gui/screen/stats.hpp"
 #include "game/gui/screen/title.hpp"
 
 namespace Game {
@@ -24,6 +25,7 @@ public slots:
     void loadTitleScreen();
     void loadSimonScreen();
     void loadMoreScreen();
+    void loadStatsScreen();
     void loadAboutScreen();
 
 private:
