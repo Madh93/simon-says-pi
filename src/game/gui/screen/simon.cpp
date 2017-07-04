@@ -15,8 +15,11 @@ Simon::Simon(QWidget *parent) : QWidget(parent) {
     // Turn widget
     turn = board->getTurn();
 
+    // Game Over scene
+    gameover = new GameOver(this);
+
     // Add board into Graphics View
-    QGraphicsView *board_view = new QGraphicsView(board, this);
+    board_view = new QGraphicsView(board, this);
     board_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     board_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
@@ -28,6 +31,18 @@ Simon::Simon(QWidget *parent) : QWidget(parent) {
 
     this->setLayout(main_layout);
 }
+
+void Simon::showGameOver() {
+
+    QTimer *timer = new QTimer(this);
+    timer->setSingleShot(true);
+    connect(timer, SIGNAL(timeout()), this, SLOT(hideGameOver()));
+
+    board_view->setScene(gameover);
+    timer->start(1000);
+}
+
+void Simon::hideGameOver() { board_view->setScene(board); emit gameOver(); }
 
 
 } // namespace Screen

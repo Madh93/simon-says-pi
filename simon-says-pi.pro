@@ -16,6 +16,7 @@ HEADERS += \
     include/game/gui/appwindow.hpp \
     include/game/gui/board.hpp \
     include/game/gui/button.hpp \
+    include/game/gui/gameover.hpp \
     include/game/gui/highscore.hpp \
     include/game/gui/palette.hpp \
     include/game/gui/score.hpp \
@@ -38,6 +39,7 @@ SOURCES += \
     src/game/gui/appwindow.cpp \
     src/game/gui/board.cpp \
     src/game/gui/button.cpp \
+    src/game/gui/gameover.cpp \
     src/game/gui/highscore.cpp \
     src/game/gui/score.cpp \
     src/game/gui/stackedwidget.cpp \

@@ -31,6 +31,10 @@ static const QColor turn_font(255, 255, 255);
 // Score style colours
 static const QColor score_font(255, 255, 255);
 
+// Game Over style colours
+static const QColor gameover_background(0, 0, 0);
+static const QColor gameover_font(255, 255, 255);
+
 
 } // namespace Palette
 } // namespace GUI
