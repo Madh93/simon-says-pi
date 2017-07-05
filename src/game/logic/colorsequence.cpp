@@ -10,22 +10,24 @@ ColorSequence::ColorSequence() {
 
 void ColorSequence::addColor() {
 
-    for(int i = 0; i < initialSize; i++)
-        addColor();
+    sequence << pickRandomColour();
 }
 
 Color ColorSequence::getColorAtIndex(int index) { return sequence[index]; }
 
-void ColorSequence::resetSequence() { sequence.clear(); }
+void ColorSequence::resetSequence() { sequence.clear(); addColor(); }
 
 
 int ColorSequence::getSequenceSize() { return sequence.size(); }
 
 
-int ColorSequence::pickRandomColour() {
+Color ColorSequence::pickRandomColour() {
 
-    int randomColour = rand() % 3;
-    return randomColour;
+    QTime time = QTime::currentTime();
+    qsrand((uint)time.msec());
+
+    int randomColour = qrand() % 4;
+    return (Color)randomColour;
 }
 
 void ColorSequence::initializeSequence() {

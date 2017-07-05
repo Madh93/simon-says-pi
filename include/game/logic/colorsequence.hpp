@@ -2,6 +2,7 @@
 #define COLORSEQUENCE_HPP
 
 #include <QVector>
+#include <QTime>
 
 #include "game/types.hpp"
 
@@ -20,9 +21,9 @@ public:
 
 private:
     QVector<Color> sequence;
-    const int initialSize = 4;
+    const int initialSize = 1;
 
-    int pickRandomColour();
+    Color pickRandomColour();
     void initializeSequence();
 };
 

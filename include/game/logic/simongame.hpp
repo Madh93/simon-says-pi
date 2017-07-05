@@ -10,14 +10,17 @@ class SimonGame {
 
 public:
     explicit SimonGame();
+    ~SimonGame();
 
     bool checkColor(Color color);
     void resetGame();
-    ColorSequence getColorSequence();
+    ColorSequence *getColorSequence();
+    Color getNextColor();
     bool isNewTurn();
+    void addColor();
 
 private:
-    ColorSequence sequence;
+    ColorSequence *sequence;
     int turn;
     int currentIndex;
 
