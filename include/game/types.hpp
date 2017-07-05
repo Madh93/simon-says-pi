@@ -22,8 +22,11 @@ enum class Audio {
     Blue
 };
 
-//enum class GameState { };
-//typedef enum { } PlayerState;
+enum class Status {
+    Waiting,
+    Playing,
+    GameOver,
+};
 
 } // namespace Game
 
