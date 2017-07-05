@@ -52,6 +52,15 @@ QLabel#about {
     color: white;
 }
 
+QLabel#letterselector {
+    color: white;
+    font: 12px;
+}
+
+QLabel#input {
+    color: white;
+}
+
 QGraphicsView {
     border-style: none;
 }
