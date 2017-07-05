@@ -14,6 +14,8 @@ Loop::Loop(QWidget *widget) : QObject(widget) {
 
     // Signals && Slots
     setUpSignalsSlots();
+
+    emit enabledBoard(false);
 }
 
 void Loop::start() { timers["game"]->start(100); }
@@ -69,7 +71,7 @@ void Loop::setUpTimers() {
 
     // Set a interval
     timers["game"]->setInterval(50);
-    timers["game"]->setInterval(1000);
+    timers["computer"]->setInterval(1000);
 
     // Signals && Slots
     this->connect(timers["game"], SIGNAL(timeout()), this, SLOT(run()));
@@ -84,6 +86,7 @@ void Loop::setUpSignalsSlots() {
     this->connect(this, SIGNAL(gameOver()), screen->getScore(), SLOT(resetScore()));
 
     // When change turn
+    this->connect(this, SIGNAL(enabledBoard(bool)), screen->getBoard(), SIGNAL(enabledBoard(bool)));
     this->connect(this, SIGNAL(changedTurn()), screen->getBoard()->getTurn(), SLOT(nextTurn()));
 
     // When win new point
@@ -97,6 +100,7 @@ void Loop::setUpSignalsSlots() {
 void Loop::stopGame() {
 
     emit gameOver();
+    emit enabledBoard(false);
 
     // Reset settings
     foreach (QTimer* timer, timers) {
@@ -114,9 +118,11 @@ void Loop::update() {
         if (status == Status::Waiting) {
             timers["computer"]->stop();
             status = Status::Playing;
+            emit enabledBoard(true);
         } else {
             status = Status::Waiting;
             simon->addColor();
+            emit enabledBoard(false);
             emit newPoint();
         }
 

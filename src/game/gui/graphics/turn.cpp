@@ -30,7 +30,7 @@ void Turn::nextTurn() {
     update();
 }
 
-void Turn::resetTurn() { turn = Game::Turn::Computer; update(); }
+void Turn::resetTurn() { setComputerTurn(); update(); }
 
 void Turn::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 

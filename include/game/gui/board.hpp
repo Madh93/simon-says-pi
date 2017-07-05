@@ -20,6 +20,7 @@ public:
     Graphics::Turn *getTurn();
 
 signals:
+    void enabledBoard(bool);
     void clicked(Color);
     void resetTurn();
 

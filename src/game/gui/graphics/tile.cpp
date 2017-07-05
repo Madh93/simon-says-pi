@@ -1,5 +1,6 @@
 #include "game/gui/graphics/tile.hpp"
 
+#include <QDebug>
 namespace Game {
 namespace GUI {
 namespace Graphics {
@@ -12,6 +13,7 @@ Tile::Tile(int x, int y, Color c, QObject *parent) :
 
     color = c;
     getQColor();
+    enabled = false;
     mediaplayer = new Game::Sound::MediaPlayer((Audio) color);
 
     update();
@@ -21,6 +23,8 @@ Color Tile::getColor() { return color; }
 
 void Tile::resetColor() { getQColor(); update(); }
 
+void Tile::setEnabled(bool condition) { enabled = condition; }
+
 void Tile::simulatePressEvent() {
 
     QTimer *timer = new QTimer(this);
@@ -29,17 +33,19 @@ void Tile::simulatePressEvent() {
 
     mediaplayer->play();
     setPressAnimation();
-    timer->start(150);
+    timer->start(250);
 }
 
 void Tile::simulateReleaseEvent() { setReleaseAnimation(); }
 
 void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 
-    if(event->button() == Qt::LeftButton) {
-        mediaplayer->play();
-        setPressAnimation();
-        emit clicked(color);
+    if (enabled) {
+        if(event->button() == Qt::LeftButton) {
+            mediaplayer->play();
+            setPressAnimation();
+            emit clicked(color);
+        }
     }
 }
 

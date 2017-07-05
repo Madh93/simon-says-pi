@@ -20,6 +20,7 @@ public:
 
 signals:
     void changedTurn();
+    void enabledBoard(bool);
     void colorShown(Color);
     void newPoint();
     void gameOver();

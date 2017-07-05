@@ -28,6 +28,7 @@ signals:
     void clicked(Color);
 
 public slots:
+    void setEnabled(bool);
     void simulatePressEvent();
     void simulateReleaseEvent();
 
@@ -39,6 +40,7 @@ private:
     Color color;
     QColor q_color;
     Game::Sound::MediaPlayer *mediaplayer;
+    bool enabled;
 
     void getQColor();
     void setPressAnimation();

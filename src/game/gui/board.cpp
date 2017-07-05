@@ -42,6 +42,7 @@ void Board::setUpTiles() {
     foreach (Tile *tile, tiles) {
         this->addItem(tile);
         connect(tile, SIGNAL(clicked(Color)), this, SIGNAL(clicked(Color)));
+        connect(this, SIGNAL(enabledBoard(bool)), tile, SLOT(setEnabled(bool)));
     }
 }
 
