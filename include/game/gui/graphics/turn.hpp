@@ -29,6 +29,7 @@ signals:
 
 public slots:
     void nextTurn();
+    void resetTurn();
 
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);

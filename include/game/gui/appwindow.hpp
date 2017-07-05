@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+#include "game/run.hpp"
 #include "game/gui/stackedwidget.hpp"
 #include "game/gui/screen/about.hpp"
 #include "game/gui/screen/more.hpp"

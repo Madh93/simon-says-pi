@@ -8,21 +8,18 @@ Tile::Tile(int x, int y, Color c, QObject *parent) :
     QObject(parent),
     QGraphicsRectItem() {
 
+    this->setRect(x, y, 160, 90);
+
     color = c;
+    getQColor();
     mediaplayer = new Game::Sound::MediaPlayer((Audio) color);
 
-    switch (color) {
-        case Color::Green : q_color = Palette::tile_green; break;
-        case Color::Red : q_color = Palette::tile_red; break;
-        case Color::Yellow : q_color = Palette::tile_yellow; break;
-        case Color::Blue : q_color = Palette::tile_blue;
-    }
-
-    this->setBrush(QBrush(q_color));
-    this->setRect(x, y, 160, 90);
+    update();
 }
 
 Color Tile::getColor() { return color; }
+
+void Tile::resetColor() { getQColor(); update(); }
 
 void Tile::simulatePressEvent() {
 
@@ -42,7 +39,7 @@ void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     if(event->button() == Qt::LeftButton) {
         mediaplayer->play();
         setPressAnimation();
-        emit clicked();
+        emit clicked(color);
     }
 }
 
@@ -50,6 +47,16 @@ void Tile::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 
     if(event->button() == Qt::LeftButton) {
         setReleaseAnimation();
+    }
+}
+
+void Tile::getQColor() {
+
+    switch (color) {
+        case Color::Green : q_color = Palette::tile_green; break;
+        case Color::Red : q_color = Palette::tile_red; break;
+        case Color::Yellow : q_color = Palette::tile_yellow; break;
+        case Color::Blue : q_color = Palette::tile_blue;
     }
 }
 

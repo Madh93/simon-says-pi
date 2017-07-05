@@ -21,7 +21,10 @@ class Simon : public QWidget {
 
     Q_OBJECT
 public:
-     explicit Simon(QWidget *parent = 0);
+    explicit Simon(QWidget *parent = 0);
+
+    Game::GUI::Board *getBoard();
+    Game::GUI::Score *getScore();
 
 signals:
     void backClicked();
@@ -36,7 +39,6 @@ private:
     Game::GUI::Board *board;
     Game::GUI::GameOver *gameover;
     Game::GUI::Score *score;
-    Game::GUI::Graphics::Turn *turn;
 };
 
 } // namespace Screen

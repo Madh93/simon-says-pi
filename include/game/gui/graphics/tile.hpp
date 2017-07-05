@@ -22,9 +22,10 @@ public:
     explicit Tile(int x, int y, Color c, QObject *parent = 0);
 
     Color getColor();
+    void resetColor();
 
 signals:
-    void clicked();
+    void clicked(Color);
 
 public slots:
     void simulatePressEvent();
@@ -39,6 +40,7 @@ private:
     QColor q_color;
     Game::Sound::MediaPlayer *mediaplayer;
 
+    void getQColor();
     void setPressAnimation();
     void setReleaseAnimation();
     void update();

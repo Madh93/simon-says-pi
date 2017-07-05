@@ -12,9 +12,6 @@ Simon::Simon(QWidget *parent) : QWidget(parent) {
     // Simon board game
     board = new Board(this);
 
-    // Turn widget
-    turn = board->getTurn();
-
     // Game Over scene
     gameover = new GameOver(this);
 
@@ -31,6 +28,10 @@ Simon::Simon(QWidget *parent) : QWidget(parent) {
 
     this->setLayout(main_layout);
 }
+
+Game::GUI::Board* Simon::getBoard() { return board; }
+
+Score *Simon::getScore() { return score; }
 
 void Simon::showGameOver() {
 
