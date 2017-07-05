@@ -20,6 +20,8 @@ HEADERS += \
     include/game/gui/button.hpp \
     include/game/gui/gameover.hpp \
     include/game/gui/highscore.hpp \
+    include/game/gui/inputwidget.hpp \
+    include/game/gui/letterselector.hpp \
     include/game/gui/palette.hpp \
     include/game/gui/score.hpp \
     include/game/gui/stackedwidget.hpp \
@@ -27,6 +29,7 @@ HEADERS += \
     include/game/gui/graphics/turn.hpp \
     include/game/gui/screen/about.hpp \
     include/game/gui/screen/base.hpp \
+    include/game/gui/screen/input.hpp \
     include/game/gui/screen/more.hpp \
     include/game/gui/screen/simon.hpp \
     include/game/gui/screen/stats.hpp \
@@ -47,12 +50,15 @@ SOURCES += \
     src/game/gui/button.cpp \
     src/game/gui/gameover.cpp \
     src/game/gui/highscore.cpp \
+    src/game/gui/inputwidget.cpp \
+    src/game/gui/letterselector.cpp \
     src/game/gui/score.cpp \
     src/game/gui/stackedwidget.cpp \
     src/game/gui/graphics/tile.cpp \
     src/game/gui/graphics/turn.cpp \
     src/game/gui/screen/about.cpp \
     src/game/gui/screen/base.cpp \
+    src/game/gui/screen/input.cpp \
     src/game/gui/screen/more.cpp \
     src/game/gui/screen/simon.cpp \
     src/game/gui/screen/stats.cpp \
