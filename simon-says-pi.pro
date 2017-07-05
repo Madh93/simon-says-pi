@@ -31,6 +31,7 @@ HEADERS += \
     include/game/gui/screen/base.hpp \
     include/game/gui/screen/input.hpp \
     include/game/gui/screen/more.hpp \
+    include/game/gui/screen/retry.hpp \
     include/game/gui/screen/simon.hpp \
     include/game/gui/screen/stats.hpp \
     include/game/gui/screen/title.hpp \
@@ -60,6 +61,7 @@ SOURCES += \
     src/game/gui/screen/base.cpp \
     src/game/gui/screen/input.cpp \
     src/game/gui/screen/more.cpp \
+    src/game/gui/screen/retry.cpp \
     src/game/gui/screen/simon.cpp \
     src/game/gui/screen/stats.cpp \
     src/game/gui/screen/title.cpp \
