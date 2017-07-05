@@ -30,11 +30,6 @@ QString InputWidget::getName() {
     return name;
 }
 
-void InputWidget::upload()
-{
-
-}
-
 
 } // namespace GUI
 } // namespace Game

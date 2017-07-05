@@ -1,6 +1,5 @@
 #include "game/gui/graphics/tile.hpp"
 
-#include <QDebug>
 namespace Game {
 namespace GUI {
 namespace Graphics {
@@ -68,7 +67,7 @@ void Tile::getQColor() {
 
 void Tile::setPressAnimation() { q_color = q_color.darker(125); update(); }
 
-void Tile::setReleaseAnimation() { q_color = q_color.lighter(125); update(); }
+void Tile::setReleaseAnimation() { resetColor(); }
 
 void Tile::update() { this->setBrush(QBrush(q_color)); }
 

@@ -37,13 +37,19 @@ void Simon::showGameOver() {
 
     QTimer *timer = new QTimer(this);
     timer->setSingleShot(true);
-    connect(timer, SIGNAL(timeout()), this, SLOT(hideGameOver()));
+    connect(timer, SIGNAL(timeout()), this, SIGNAL(gameOver()));
 
     board_view->setScene(gameover);
     timer->start(1000);
 }
 
-void Simon::hideGameOver() { board_view->setScene(board); emit gameOver(); }
+void Simon::reset() {
+
+    board_view->setScene(board);
+    board->reset();
+    score->resetScore();
+}
+
 
 
 } // namespace Screen

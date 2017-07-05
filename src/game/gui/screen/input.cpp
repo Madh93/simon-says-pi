@@ -18,7 +18,7 @@ Input::Input(QWidget *parent) : QWidget(parent) {
     text_label->setText("<center><h2>Enter your name</h2></center>");
 
     // Input widget
-    InputWidget *input_widget = new InputWidget(this);
+    input_widget = new InputWidget(this);
 
     // Main layout
     QVBoxLayout *main_layout = new QVBoxLayout(parent);
@@ -31,8 +31,12 @@ Input::Input(QWidget *parent) : QWidget(parent) {
 
     // Signals && Slots
     this->connect(accept_button, SIGNAL(clicked()), this, SIGNAL(acceptClicked()));
-    this->connect(this, SIGNAL(acceptClicked()), input_widget, SLOT(upload()));
+    this->connect(this, SIGNAL(acceptClicked()), this, SLOT(updateName()));
 }
+
+QString Input::getName() { return name; }
+
+void Input::updateName() { name = input_widget->getName(); }
 
 } // namespace Screen
 } // namespace GUI

@@ -2,6 +2,7 @@
 #define RETRY_HPP
 
 #include <QGridLayout>
+#include <QLabel>
 
 #include "game/gui/screen/base.hpp"
 #include "game/gui/button.hpp"
@@ -21,6 +22,10 @@ signals:
     void retryClicked();
 
 public slots:
+    void setScore(int);
+
+private:
+    QLabel *score_label;
 };
 
 } // namespace Screen

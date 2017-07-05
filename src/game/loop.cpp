@@ -80,11 +80,6 @@ void Loop::setUpTimers() {
 
 void Loop::setUpSignalsSlots() {
 
-    // When Game Over
-    this->connect(this, SIGNAL(gameOver()), screen, SLOT(showGameOver()));
-    this->connect(this, SIGNAL(gameOver()), screen->getBoard(), SLOT(reset()));
-    this->connect(this, SIGNAL(gameOver()), screen->getScore(), SLOT(resetScore()));
-
     // When change turn
     this->connect(this, SIGNAL(enabledBoard(bool)), screen->getBoard(), SIGNAL(enabledBoard(bool)));
     this->connect(this, SIGNAL(changedTurn()), screen->getBoard()->getTurn(), SLOT(nextTurn()));
@@ -95,6 +90,9 @@ void Loop::setUpSignalsSlots() {
     // When computer/player push tiles
     this->connect(this, SIGNAL(colorShown(Color)), screen->getBoard(), SLOT(showColor(Color)));
     this->connect(screen->getBoard(), SIGNAL(clicked(Color)), this, SLOT(receiveColor(Color)));
+
+    // When Game Over
+    this->connect(this, SIGNAL(gameOver()), screen, SLOT(showGameOver()));
 }
 
 void Loop::stopGame() {

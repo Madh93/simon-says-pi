@@ -17,7 +17,6 @@ void Score::resetScore() { score = 0; update(); }
 
 void Score::addScore() { score += 1; update(); }
 
-
 void Score::update() { this->setText(QString("Score: %1").arg(score)); }
 
 } // namespace GUI

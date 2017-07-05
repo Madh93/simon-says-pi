@@ -32,7 +32,7 @@ signals:
 
 public slots:
     void showGameOver();
-    void hideGameOver();
+    void reset();
 
 private:
     QGraphicsView *board_view;

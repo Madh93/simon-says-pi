@@ -1,6 +1,5 @@
 #include "game/gui/letterselector.hpp"
 
-#include <QDebug>
 namespace Game {
 namespace GUI {
 

@@ -22,7 +22,6 @@ public:
 signals:
 
 public slots:
-    void upload();
 
 protected:
 

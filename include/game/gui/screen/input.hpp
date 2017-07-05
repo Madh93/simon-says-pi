@@ -18,12 +18,17 @@ class Input : public QWidget {
 public:
     explicit Input(QWidget *parent = 0);
 
+    QString getName();
+
 signals:
     void acceptClicked();
-    void statsClicked();
-    void aboutClicked();
 
 public slots:
+    void updateName();
+
+private:
+    InputWidget *input_widget;
+    QString name;
 };
 
 } // namespace Screen

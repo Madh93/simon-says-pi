@@ -4,9 +4,12 @@
 #include <QMainWindow>
 
 #include "game/run.hpp"
+#include "game/upload.hpp"
 #include "game/gui/stackedwidget.hpp"
 #include "game/gui/screen/about.hpp"
+#include "game/gui/screen/input.hpp"
 #include "game/gui/screen/more.hpp"
+#include "game/gui/screen/retry.hpp"
 #include "game/gui/screen/simon.hpp"
 #include "game/gui/screen/stats.hpp"
 #include "game/gui/screen/title.hpp"
@@ -25,6 +28,8 @@ signals:
 public slots:
     void loadTitleScreen();
     void loadSimonScreen();
+    void loadInputScreen();
+    void loadRetryScreen();
     void loadMoreScreen();
     void loadStatsScreen();
     void loadAboutScreen();
@@ -34,7 +39,9 @@ private:
     QHash<QString, QWidget*> screens;
     Direction direction;
 
+    void setUpSignalsSlots();
     QWidget *currentScreen();
+
     void update(QWidget *screen);
 };
 
