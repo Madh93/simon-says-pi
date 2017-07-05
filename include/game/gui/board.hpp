@@ -20,8 +20,12 @@ public:
     Graphics::Turn *getTurn();
 
 signals:
+    void clicked(Color);
+    void resetTurn();
 
 public slots:
+    void showColor(Color color);
+    void reset();
 
 protected:
 

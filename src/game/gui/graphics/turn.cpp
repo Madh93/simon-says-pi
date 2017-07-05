@@ -30,6 +30,8 @@ void Turn::nextTurn() {
     update();
 }
 
+void Turn::resetTurn() { turn = Game::Turn::Computer; update(); }
+
 void Turn::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 
     // Disable event propagation to tiles

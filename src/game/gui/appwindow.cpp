@@ -29,6 +29,7 @@ AppWindow::AppWindow(QMainWindow *parent) : QMainWindow(parent) {
     // Signals & Slots
     this->connect(screens["title"], SIGNAL(moreClicked()), this, SLOT(loadMoreScreen()));
     this->connect(screens["title"], SIGNAL(playClicked()), this, SLOT(loadSimonScreen()));
+    this->connect(screens["simon"], SIGNAL(gameOver()), this, SLOT(loadTitleScreen()));
     this->connect(screens["more"], SIGNAL(backClicked()), this, SLOT(loadTitleScreen()));
     this->connect(screens["more"], SIGNAL(statsClicked()), this, SLOT(loadStatsScreen()));
     this->connect(screens["more"], SIGNAL(aboutClicked()), this, SLOT(loadAboutScreen()));
@@ -51,6 +52,9 @@ void AppWindow::loadSimonScreen() {
 
     direction = Direction::TopToBottom;
     update(screens["simon"]);
+
+    // Start game
+    Game::start(screens["simon"]);
 }
 
 void AppWindow::loadMoreScreen() {

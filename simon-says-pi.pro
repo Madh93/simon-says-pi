@@ -12,6 +12,8 @@ INSTALLS += target
 INCLUDEPATH += include
 
 HEADERS += \
+    include/game/loop.hpp \
+    include/game/run.hpp \
     include/game/types.hpp \
     include/game/gui/appwindow.hpp \
     include/game/gui/board.hpp \
@@ -29,13 +31,17 @@ HEADERS += \
     include/game/gui/screen/simon.hpp \
     include/game/gui/screen/stats.hpp \
     include/game/gui/screen/title.hpp \
+    include/game/logic/colorsequence.hpp \
+    include/game/logic/simongame.hpp \
     include/game/settings/manager.hpp \
     include/game/sound/mediaplayer.hpp
 
 
 # Source files
 SOURCES += \
+    src/game/loop.cpp \
     src/game/main.cpp \
+    src/game/run.cpp \
     src/game/gui/appwindow.cpp \
     src/game/gui/board.cpp \
     src/game/gui/button.cpp \
@@ -51,6 +57,8 @@ SOURCES += \
     src/game/gui/screen/simon.cpp \
     src/game/gui/screen/stats.cpp \
     src/game/gui/screen/title.cpp \
+    src/game/logic/colorsequence.cpp \
+    src/game/logic/simongame.cpp \
     src/game/settings/manager.cpp \
     src/game/sound/mediaplayer.cpp
 

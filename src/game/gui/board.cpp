@@ -11,11 +11,24 @@ Board::Board(QObject *parent) : QGraphicsScene(parent) {
     // Board graphics elements
     setUpTiles();
     setUpTurn();
+
+    // Signals && Slots
+    this->connect(this, SIGNAL(resetTurn()), turn, SLOT(resetTurn()));
 }
 
 Graphics::Tile *Board::getTile(Color color) { return getTileByColor(color); }
 
 Graphics::Turn *Board::getTurn() { return turn; }
+
+void Board::showColor(Color color) { getTile(color)->simulatePressEvent(); }
+
+void Board::reset() {
+
+    foreach (Graphics::Tile *tile, tiles) {
+        tile->resetColor();
+    }
+    emit resetTurn();
+}
 
 void Board::setUpTiles() {
 
@@ -28,6 +41,7 @@ void Board::setUpTiles() {
 
     foreach (Tile *tile, tiles) {
         this->addItem(tile);
+        connect(tile, SIGNAL(clicked(Color)), this, SIGNAL(clicked(Color)));
     }
 }
 
