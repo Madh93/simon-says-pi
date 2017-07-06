@@ -28,6 +28,11 @@ enum class Status {
     GameOver,
 };
 
+enum class LedType {
+    Success,
+    Failure
+};
+
 } // namespace Game
 
 #endif // TYPES_HPP

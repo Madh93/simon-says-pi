@@ -42,6 +42,7 @@ HEADERS += \
     include/game/sound/mediaplayer.hpp
 
 
+
 # Source files
 SOURCES += \
     src/game/loop.cpp \
@@ -72,6 +73,12 @@ SOURCES += \
     src/game/settings/manager.cpp \
     src/game/sound/mediaplayer.cpp
 
+
+# Specific sources for Raspberry Pi
+#linux-arm-g++{
+#    HEADERS += include/game/external/led.hpp
+#    SOURCES += src/game/external/led.cpp
+#}
 
 # Resources files
 RESOURCES += \
