@@ -80,6 +80,11 @@ SOURCES += \
 #    SOURCES += src/game/external/led.cpp
 #}
 
+# Third party libraries
+# qt-json
+HEADERS += 3rdparty/qt-json/json.h
+SOURCES += 3rdparty/qt-json/json.cpp
+
 # Resources files
 RESOURCES += \
     resources.qrc
