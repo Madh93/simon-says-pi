@@ -7,6 +7,7 @@
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 
+#include "game/types.hpp"
 #include "game/settings/manager.hpp"
 
 /* REFERENCE:
@@ -15,13 +16,6 @@
 
 namespace Game {
 namespace GUI {
-
-enum class Direction {
-    LeftToRight,
-    RightToLeft,
-    TopToBottom,
-    BottomToTop
-};
 
 class StackedWidget : public QStackedWidget {
 

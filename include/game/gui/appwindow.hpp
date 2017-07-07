@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+#include "game/types.hpp"
 #include "game/run.hpp"
 #include "game/gui/stackedwidget.hpp"
 #include "game/gui/screen/about.hpp"
@@ -36,7 +37,7 @@ public slots:
 private:
     StackedWidget *stacked_widget;
     QHash<QString, QWidget*> screens;
-    Direction direction;
+    Game::Direction direction;
 
     void setUpSignalsSlots();
     QWidget *currentScreen();

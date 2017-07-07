@@ -28,6 +28,13 @@ enum class Status {
     GameOver,
 };
 
+enum class Direction {
+    LeftToRight,
+    RightToLeft,
+    TopToBottom,
+    BottomToTop
+};
+
 enum class LedType {
     Success,
     Failure
