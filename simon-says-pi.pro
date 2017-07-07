@@ -1,5 +1,5 @@
 # Qt Dependencies
-QT += phonon
+QT += phonon network
 
 
 # Installation settings
@@ -14,7 +14,6 @@ INCLUDEPATH += include
 HEADERS += \
     include/game/loop.hpp \
     include/game/run.hpp \
-    include/game/upload.hpp \
     include/game/types.hpp \
     include/game/gui/appwindow.hpp \
     include/game/gui/board.hpp \
@@ -38,6 +37,7 @@ HEADERS += \
     include/game/gui/screen/title.hpp \
     include/game/logic/colorsequence.hpp \
     include/game/logic/simongame.hpp \
+    include/game/network/api.hpp \
     include/game/settings/manager.hpp \
     include/game/sound/mediaplayer.hpp
 
@@ -48,7 +48,6 @@ SOURCES += \
     src/game/loop.cpp \
     src/game/main.cpp \
     src/game/run.cpp \
-    src/game/upload.cpp \
     src/game/gui/appwindow.cpp \
     src/game/gui/board.cpp \
     src/game/gui/button.cpp \
@@ -70,6 +69,7 @@ SOURCES += \
     src/game/gui/screen/title.cpp \
     src/game/logic/colorsequence.cpp \
     src/game/logic/simongame.cpp \
+    src/game/network/api.cpp \
     src/game/settings/manager.cpp \
     src/game/sound/mediaplayer.cpp
 
@@ -79,6 +79,11 @@ SOURCES += \
 #    HEADERS += include/game/external/led.hpp
 #    SOURCES += src/game/external/led.cpp
 #}
+
+# Third party libraries
+# qt-json
+HEADERS += 3rdparty/qt-json/json.h
+SOURCES += 3rdparty/qt-json/json.cpp
 
 # Resources files
 RESOURCES += \

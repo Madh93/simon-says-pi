@@ -31,6 +31,16 @@ HighScore::HighScore(QWidget *parent) : QWidget(parent) {
     this->setLayout(layout);
 }
 
+void HighScore::updateHighscore(QVector<QVector<QString> > scores) {
+
+    int i = 1;
+
+    foreach (QVector<QString> element, scores) {
+        highscores["names"][i]->setText(element[0]);
+        highscores["scores"][i++]->setText(element[1]);
+    }
+}
+
 void HighScore::setUpHighScores() {
 
     // Places labels
@@ -43,11 +53,11 @@ void HighScore::setUpHighScores() {
 
     // Names labels
     highscores["names"] << new QLabel("NAME", this);
-    highscores["names"] << new QLabel("AAAA", this);
-    highscores["names"] << new QLabel("BBBB", this);
-    highscores["names"] << new QLabel("CCCC", this);
-    highscores["names"] << new QLabel("DDDD", this);
-    highscores["names"] << new QLabel("EEEE", this);
+    highscores["names"] << new QLabel("????", this);
+    highscores["names"] << new QLabel("????", this);
+    highscores["names"] << new QLabel("????", this);
+    highscores["names"] << new QLabel("????", this);
+    highscores["names"] << new QLabel("????", this);
 
     // Scores labels
     highscores["scores"] << new QLabel("SCORE", this);
