@@ -96,6 +96,9 @@ void AppWindow::loadStatsScreen() {
 
     direction = Direction::LeftToRight;
     update(screens["stats"]);
+
+    // Get top highscores
+    Game::updateHighscore(screens["stats"]);
 }
 
 void AppWindow::loadAboutScreen() {

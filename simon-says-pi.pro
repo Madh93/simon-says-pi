@@ -14,7 +14,6 @@ INCLUDEPATH += include
 HEADERS += \
     include/game/loop.hpp \
     include/game/run.hpp \
-    include/game/upload.hpp \
     include/game/types.hpp \
     include/game/gui/appwindow.hpp \
     include/game/gui/board.hpp \
@@ -49,7 +48,6 @@ SOURCES += \
     src/game/loop.cpp \
     src/game/main.cpp \
     src/game/run.cpp \
-    src/game/upload.cpp \
     src/game/gui/appwindow.cpp \
     src/game/gui/board.cpp \
     src/game/gui/button.cpp \

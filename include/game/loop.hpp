@@ -7,6 +7,7 @@
 
 #include <game/logic/simongame.hpp>
 #include <game/gui/screen/simon.hpp>
+#include <game/gui/screen/stats.hpp>
 
 namespace Game {
 

@@ -1,5 +1,4 @@
 #include "game/network/api.hpp"
-#include <QDebug>
 
 namespace Game {
 namespace Network {
@@ -91,7 +90,7 @@ void Api::parseHighscores() {
 
 void Api::getMethod(QString resource) {
 
-    QUrl url(QString(base_url).arg(resource));
+    QUrl url(base_url.append(resource));
     QNetworkRequest request(url);
 
     manager->get(request);
@@ -99,7 +98,7 @@ void Api::getMethod(QString resource) {
 
 void Api::postMethod(QString resource, QByteArray data) {
 
-    QUrl url(QString(base_url).arg(resource));
+    QUrl url(base_url.append(resource));
     QNetworkRequest request(url);
 
     // Specify a JSON object is sent

@@ -57,6 +57,11 @@ QLabel#letterselector {
     font: 12px;
 }
 
+QLabel#loading {
+    color: white;
+    font: bold 36px;
+}
+
 QLabel#input {
     color: white;
 }
