@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QVector>
+#include <QDateTime>
 #include <QUrl>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkRequest>
@@ -39,6 +40,7 @@ private:
     QNetworkAccessManager *manager;
     QString base_url;
     QString result;
+    int limit;
 
     void getMethod(QString resource);
     void postMethod(QString resource, QByteArray data);

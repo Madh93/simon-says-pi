@@ -8,6 +8,7 @@ Api::Api(QObject *parent) : QObject(parent) {
     // Manager to send REST petitions
     manager = new QNetworkAccessManager(this);
     result = "";
+    limit = 5;
 
     // URL information
     QString host = Game::Settings::load("network:api:host").toString();
@@ -21,12 +22,13 @@ Api::Api(QObject *parent) : QObject(parent) {
 void Api::uploadScore(QString name, int score) {
 
     // Name of resource
-    QString resource = "/score";
+    QString resource = "/games";
 
     // Create a JSON object
     QtJson::JsonObject json;
     json["name"] = name;
     json["score"] = score;
+    json["timestamp"] = QString::number(QDateTime::currentDateTimeUtc().toTime_t());
 
     // Serialize object
     QByteArray data = QtJson::serialize(json);
@@ -37,8 +39,11 @@ void Api::uploadScore(QString name, int score) {
 
 void Api::getHighscores(int limit) {
 
+    // Set up limit of top highscores
+    this->limit = limit;
+
     // Name of resource
-    QString resource = QString("/scores/%1").arg(limit);
+    QString resource = QString("/topscores");
 
     // Send get petition
     getMethod(resource);
@@ -69,7 +74,7 @@ void Api::parseHighscores() {
 
     // Deserialize JSON data
     bool ok;
-    QtJson::JsonObject data = QtJson::parse(result, ok).toMap();
+    QList<QVariant> data = QtJson::parse(result, ok).toList();
 
     if (!ok) {
         return;
@@ -78,10 +83,10 @@ void Api::parseHighscores() {
     // Store top highscores
     QVector<QVector<QString> > highscores;
 
-    foreach (QVariant highscore, data["scores"].toList()) {
+    for (int i = 0; i < limit; i++) {
         QVector<QString> element;
-        element << highscore.toMap()["name"].toString();
-        element << highscore.toMap()["score"].toString();
+        element << data[i].toMap()["name"].toString();
+        element << data[i].toMap()["score"].toString();
         highscores << element;
     }
 
