@@ -1,0 +1,20 @@
+version: '2'
+services:
+  gowebservice:
+    build: ./gowebservice
+    image: gowebservice
+    container_name: gosimongame-api
+    depends_on:
+      - db
+    links:
+      - "db:database"
+    ports:
+      - "8080:8080"
+
+  db:
+    image: mongo:3.3
+    container_name: gamesdb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
