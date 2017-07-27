@@ -2,7 +2,7 @@
 
 Simon game for Raspberry Pi based on Qt 4.
 
-<p align="center">![Demo](https://media.giphy.com/media/26n6GzbHxPffnsQtW/giphy.gif)</p>
+![Demo](https://media.giphy.com/media/26n6GzbHxPffnsQtW/giphy.gif)
 
 Tested on Raspberry Pi 1 Model B + [Adafruit PiTFT - 320x240 2.8" Touchscreen](https://www.adafruit.com/product/1601).
 
